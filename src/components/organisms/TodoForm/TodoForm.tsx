@@ -1,6 +1,6 @@
 'use client';
 
-import { CreateTodoInput } from '@/types/todo.types';
+import { CreateTodoInput, Priority } from '@/types/todo.types';
 import { Input } from '@/components/atoms/Input/Input';
 import { Textarea } from '@/components/atoms/Textarea/Textarea';
 import { Select } from '@/components/atoms/Select/Select';
@@ -45,7 +45,7 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onSubmit }) => {
       <div>
         <Select
           value={formData.priority}
-          onChange={(e) => updateField('priority', e.target.value)}
+          onChange={(e) => updateField('priority', e.target.value as Priority)}
         >
           <option value="HIGH">높음</option>
           <option value="MEDIUM">중간</option>

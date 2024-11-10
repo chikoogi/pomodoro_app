@@ -5,7 +5,7 @@ import { Todo, CreateTodoInput, UpdateTodoInput } from '@/types/todo.types';
 import { useLocalStorage } from './useLocalStorage';
 
 export const useTodoManagement = () => {
-  const [todos, setTodos] = useLocalStorage<Todo[]>('todos', []);
+  const [todos, setTodos, isLoading] = useLocalStorage<Todo[]>('todos', []);
 
   const addTodo = useCallback((input: CreateTodoInput) => {
     const newTodo: Todo = {
@@ -17,11 +17,11 @@ export const useTodoManagement = () => {
       pomodoroCount: 0
     };
     
-    setTodos((prev: Todo[]) => [...prev, newTodo]);
+    setTodos(prev => [...prev, newTodo]);
   }, [setTodos]);
 
   const updateTodo = useCallback((id: string, updates: UpdateTodoInput) => {
-    setTodos((prev: Todo[]) => prev.map(todo => 
+    setTodos(prev => prev.map(todo => 
       todo.id === id 
         ? { ...todo, ...updates, updatedAt: new Date() }
         : todo
@@ -29,11 +29,11 @@ export const useTodoManagement = () => {
   }, [setTodos]);
 
   const deleteTodo = useCallback((id: string) => {
-    setTodos((prev: Todo[]) => prev.filter(todo => todo.id !== id));
+    setTodos(prev => prev.filter(todo => todo.id !== id));
   }, [setTodos]);
 
   const toggleTodoComplete = useCallback((id: string) => {
-    setTodos((prev: Todo[]) => prev.map(todo =>
+    setTodos(prev => prev.map(todo =>
       todo.id === id
         ? { ...todo, isCompleted: !todo.isCompleted, updatedAt: new Date() }
         : todo
@@ -42,6 +42,7 @@ export const useTodoManagement = () => {
 
   return {
     todos,
+    isLoading,
     addTodo,
     updateTodo,
     deleteTodo,
