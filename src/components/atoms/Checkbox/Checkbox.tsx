@@ -1,10 +1,17 @@
-'use client';
+'use client'
 
-interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
-  label?: string;
+import { useEffect, useState } from 'react'
+
+interface CheckboxProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  label?: string
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({ label, className = '', ...props }) => {
+export const Checkbox: React.FC<CheckboxProps> = ({
+  label,
+  className = '',
+  ...props
+}) => {
   return (
     <label className="flex items-center gap-2">
       <input
@@ -14,5 +21,5 @@ export const Checkbox: React.FC<CheckboxProps> = ({ label, className = '', ...pr
       />
       {label && <span className="text-sm">{label}</span>}
     </label>
-  );
-}; 
+  )
+}

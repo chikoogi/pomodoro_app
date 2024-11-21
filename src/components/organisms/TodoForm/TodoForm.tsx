@@ -1,18 +1,18 @@
-'use client';
+'use client'
 
-import { CreateTodoInput, Priority } from '@/types/todo.types';
-import { Input } from '@/components/atoms/Input/Input';
-import { Textarea } from '@/components/atoms/Textarea/Textarea';
-import { Select } from '@/components/atoms/Select/Select';
-import { Button } from '@/components/atoms/Button/Button';
-import { useTodoForm } from '@/hooks/useTodoForm';
+import { CreateTodoInput, Priority } from '@/types/todo.types'
+import { Input } from '@/components/atoms/Input/Input'
+import { Textarea } from '@/components/atoms/Textarea/Textarea'
+import { Select } from '@/components/atoms/Select/Select'
+import { Button } from '@/components/atoms/Button/Button'
+import { useTodoForm } from '@/hooks/useTodoForm'
 
 interface TodoFormProps {
-  onSubmit: (input: CreateTodoInput) => void;
+  onSubmit: (input: CreateTodoInput) => void
 }
 
 export const TodoForm: React.FC<TodoFormProps> = ({ onSubmit }) => {
-  const { formData, updateField, handleSubmit } = useTodoForm(onSubmit);
+  const { formData, updateField, handleSubmit } = useTodoForm(onSubmit)
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -57,5 +57,5 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onSubmit }) => {
         할 일 추가
       </Button>
     </form>
-  );
-}; 
+  )
+}
