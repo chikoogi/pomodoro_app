@@ -36,6 +36,7 @@ export const usePomodoro = (todoId: string) => {
     const newSession: PomodoroSession = {
       id: crypto.randomUUID(),
       todoId,
+      title: '',
       startTime: new Date(),
       endTime: null,
       duration: settings.workDuration,

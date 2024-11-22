@@ -1,4 +1,12 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
+
+interface IconButtonProps {
+  icon: ReactNode
+  onClick: any
+  label: string
+  size: any
+  disabled: boolean
+}
 
 const IconButton = ({
   icon,
