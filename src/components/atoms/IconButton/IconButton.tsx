@@ -6,7 +6,7 @@ const IconButton = ({
   label,
   size = 'medium',
   disabled = false,
-}) => {
+}: any) => {
   const sizes = {
     small: 'w-8 h-8 text-sm',
     medium: 'w-10 h-10 text-base',
