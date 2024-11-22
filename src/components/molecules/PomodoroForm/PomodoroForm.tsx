@@ -40,8 +40,12 @@ export const PomodoroForm: React.FC<PomodoroFormProps> = ({
           type="text"
           value={title}
           onChange={(e) => {
-            if (e.target.value === '') setTitle(duration + 'Pomodoro')
-            else setTitle(e.target.value)
+            setTitle(e.target.value)
+          }}
+          onBlur={() => {
+            if (!title.trim()) {
+              setTitle('Pomodoro') // 빈 값일 때 임시 값 설정
+            }
           }}
           required
         />
